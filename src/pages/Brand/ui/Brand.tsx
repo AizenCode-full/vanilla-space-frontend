@@ -33,7 +33,6 @@ const Brand =()=>{
 <div className=" flex justify-center mt-[100px]">
     <button className="  w-[260px] h-[68px] bg-[#6E9C9F] text-white text-center   ">Перейти в магазин</button>
 </div>
-{/* <button className="  w-[260px] h-[68px] bg-[#6E9C9F] text-white text-center   ">Перейти в магазин</button> */}
 </div>
 </>
     )
