@@ -1,6 +1,12 @@
 import { useState } from 'react';
 import type { JSX } from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUserAuthData, userActions } from '@/entities/user';
+
+interface HeaderProps {
+    onOpenAuth?: () => void;
+}
 
 interface CartItem {
   id: string;
@@ -9,14 +15,24 @@ interface CartItem {
   quantity: number;
 }
 
-export function Header(): JSX.Element {
-  const [isCatalogOpen, setIsCatalogOpen] = useState<boolean>(false);
-  
-  const isAuth = false; 
-  const isAdmin = false;
-  const user = { name: 'Гость' };
-  const cartItems: CartItem[] = []; 
 
+export function Header({ onOpenAuth }: HeaderProps): JSX.Element {
+  const [isCatalogOpen, setIsCatalogOpen] = useState<boolean>(false);
+  const dispatch = useDispatch();
+  const authData = useSelector(getUserAuthData);
+  const isAuth = !!authData;
+  const isAdmin = false;
+  const user = { name: authData?.username || 'Гость' };
+  const cartItems: CartItem[] = [];
+   
+  const handleAuthClick = (e: React.MouseEvent) => {
+    e.preventDefault(); 
+    if (onOpenAuth) onOpenAuth();
+  };
+  const handleLogoutClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    dispatch(userActions.logout());
+  };
   return (
     <header className="header flex flex-col w-full max-w-[1200px] mx-auto px-4 mt-5 gap-4 font-sans">
       <div className="header__top flex justify-between items-center w-full">
@@ -52,25 +68,34 @@ export function Header(): JSX.Element {
           </div>
 
           {isAuth ? (
-            <div className="actions__user flex items-center gap-4 animate-fade-in">
-              {isAdmin && (
-                <Link 
-                  to="/admin/add-product" 
-                  className="text-xs bg-[#6e9c9f]/20 text-[#6e9c9f] px-3 py-1.5 rounded-sm font-bold hover:bg-[#6e9c9f]/30 transition-colors uppercase tracking-wider"
-                >
-                  + Добавить товар
-                </Link>
-              )}
-              <span className="text-sm font-semibold text-gray-700">{user?.name}</span>
-              <button 
-                className="text-xs text-red-400 hover:text-red-600 font-medium transition-colors border-b border-transparent hover:border-red-600 pb-0.5"
+           <div 
+              onClick={handleLogoutClick}
+              className="actions__auth auth flex items-center gap-1.5 cursor-pointer text-black hover:text-red-500 transition-colors group"
+            >
+    
+              <svg 
+                xmlns="http://w3.org" 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                strokeWidth="1.5" 
+                stroke="currentColor" 
+                className="size-8 text-red-500 group-hover:text-red-600 transition-colors" 
               >
-                Выйти
-              </button>
+              <path 
+                 strokeLinecap="round" 
+                 strokeLinejoin="round" 
+                 d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" 
+              />
+              </svg>
+    
+              <span className="auth__link text-sm font-medium">
+                  Выйти
+              </span>
             </div>
           ) : (
-            <div className="actions__auth auth flex items-center gap-1.5 cursor-pointer text-black hover:text-[#6E9C9F] transition-colors group">
-              <svg 
+            
+             <div className="actions__auth auth flex items-center gap-1.5 cursor-pointer text-black hover:text-[#6E9C9F] transition-colors group">
+               <svg 
                  xmlns="http://w3.org" 
                  fill="none" 
                  viewBox="0 0 24 24" 
@@ -84,10 +109,14 @@ export function Header(): JSX.Element {
                   d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" 
                 />
               </svg>
-              <Link to="/login" className="auth__link text-sm font-medium">
-                Войти
-              </Link>
-            </div>
+               <Link 
+                 to="/login" 
+                 onClick={handleAuthClick} 
+                  className="auth__link text-sm font-medium"
+                   >
+                 Войти
+               </Link>
+             </div>
           )}
 
           <Link to="/cart" className="actions__cart cart relative cursor-pointer group">
