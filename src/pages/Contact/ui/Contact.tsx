@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import type { JSX } from 'react';
 
-const Contact: React.FC = () => {
+export function Contact(): JSX.Element {
+// const Contact: React.FC = () => {
   const [success, setSuccess] = useState(false);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -88,5 +90,6 @@ const Contact: React.FC = () => {
     </div>
   );
 };
+
 
 export default Contact;

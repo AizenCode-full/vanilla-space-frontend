@@ -1,41 +1,63 @@
-const Brand =()=>{
-    return(<>
-    <div className="container "> 
-        <div className="bg-white mb-16">
-        <h1 className=" text-[55px] font-medium mt-[160px] ">О бренде </h1>
-        <p className=" text-[17px] font-normal text-[#909090]"> <span>Главная</span>—
-О бренде</p>
-</div>
-<div className=" flex justify-between gap-[50px] mt-[130px] ">
-    
-<img className=" w-[442px] h-[547x] " src="/brend1.png" alt="" />
 
-<div className=" my-[113px] w-[545px] ]">
-<p className=" text-[25px]font-medium h-[35ppx] w-[211px] text-black">Идея и женщина</p>
-<p className=" text-[17px]font-mediumtext-black mt-[50px]">Vanilla Space была основана в 2010-ом и стала одной из самых успешных компаний нашей страны. Как и многие итальянские фирмы, Womazing остаётся семейной компанией, хотя ни один из членов семьи не является модельером.</p>
-<p className=" text-[17px]font-medium text-black mt-[20px]">Мы действуем по успешной формуле, прибегая к услугам известных модельеров для создания своих коллекций. Этот метод был описан критиком моды Колином Макдауэллом как форма дизайнерского со-творчества, характерная для ряда итальянских prêt-a-porter компаний. </p>
-</div>
-</div>
+import type { JSX } from 'react';
+import { useAppSelector } from '@/hooks'; // Чтение из Redux
+import { useNavigate } from 'react-router-dom';
 
+export function Brand(): JSX.Element {
+  const brandState = useAppSelector((state) => state.brand);
+  const navigate = useNavigate();
+  if (!brandState || !brandState.blocks) {
+    return (
+      <div className="flex h-[50vh] items-center justify-center text-sm font-medium text-gray-400">
+        Загрузка пространства Vanilla Space...
+      </div>
+    );
+  }
 
-<div className=" flex justify-between gap-[80px] mt-[130px]">
-    <div className=" my-[113px] w-[545px] ]">
-<p className=" text-[25px]font-medium h-[35ppx] w-[211px] text-black">Магия в деталях</p>
-<p className=" text-[17px]font-mediumtext-black mt-[50px]">Первый магазин Vanilla Space был открыт в маленьком городке на севере страны в 2010-ом году. Первая коллекция состояла из двух пальто и костюма, которые были копиями парижских моделей.</p>
+  const { title, blocks } = brandState;
+  return (
+    <div className="brand-page max-w-277.5 mx-auto px-6 py-10 font-sans animate-fade-in"> 
+        <div className="brand-page__header bg-white mb-16 mt-20">
+          <h1 className="text-5xl font-medium text-black mb-6">{title || "О бренде"}</h1>
+          <p className="text-sm font-normal text-[#909090] tracking-wide">
+            <span onClick={() => navigate('/')} className="hover:text-[#6E9C9F] cursor-pointer transition-colors">
+              Главная
+            </span>
+            <span className="mx-2 text-gray-300">—</span>О бренде
+          </p>
+        </div>
+        <div className="brand-page__sections flex flex-col gap-24">
+          {blocks.map((block) => (
+            <div 
+              key={block.id} 
+              className={`brand-section flex flex-col justify-between items-center gap-12 ${
+                block.isImageLeft ? 'lg:flex-row' : 'lg:flex-row-reverse'
+              }`}
+            >
+              <div className="brand-section__image-wrapper w-110.5 h-136.75 bg-gray-50 overflow-hidden shadow-xs rounded-sm">
+                {block.image ? (
+                  <img className="w-full h-full object-cover" src={block.image} alt={block.title} />
+                ) : (
+                  <div className="w-full h-full bg-gray-100 flex items-center justify-center text-xs text-gray-400">📸 Нет фото</div>
+                )}
+              </div>
+              <div className="brand-section__content w-136.25 flex flex-col gap-6">
+                <h2 className="text-2xl font-medium text-black tracking-wide">{block.title}</h2>
+                <p className="text-sm font-medium text-black leading-relaxed mt-2">{block.textFirst}</p>
+                <p className="text-sm font-medium text-black leading-relaxed">{block.textSecond}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="flex justify-center mt-20">
+          <button 
+            onClick={() => navigate('/shop')}
+            className="w-65 h-17 bg-[#6E9C9F] text-white text-sm font-bold uppercase tracking-widest text-center hover:bg-[#5b8588] transition-colors rounded-sm shadow-xs"
+          >
+            Перейти в магазин
+          </button>
+        </div>
 
-<p className=" text-[17px]font-medium text-black mt-[20px]">Несмотря на то, что по образованию основательница была адвокатом, ее семья всегда была тесно связана с шитьём (прабабушка основательницы шила одежду для женщин, а мать основала профессиональную школу кроя и шитья). Стремление производить одежду для масс несло в себе большие перспективы, особенно в то время, когда высокая мода по-прежнему доминировала, а рынка качественного prêt-a-porter попросту не существовало. </p>
-</div>
-
-    <img className=" w-[442px] h-[547x]" src="/brend2.png" alt="" />
-    
-</div>
-
-<div className=" flex justify-center mt-[100px]">
-    <button className="  w-[260px] h-[68px] bg-[#6E9C9F] text-white text-center   ">Перейти в магазин</button>
-</div>
-{/* <button className="  w-[260px] h-[68px] bg-[#6E9C9F] text-white text-center   ">Перейти в магазин</button> */}
-</div>
-</>
-    )
+    </div>
+  );
 }
-export default Brand;
