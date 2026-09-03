@@ -4,6 +4,7 @@ import { Header } from '@/widgets/header'
 import {Home} from '@/pages/home/ui/home';
 import Brand from '@/pages/Brand/ui/Brand';
 import Contact from '@/pages/Contact/ui/Contact';
+import Footer from '@/widgets/footer/ui/footer';
 
 
 export default function AppRoutes(): JSX.Element {
@@ -21,6 +22,7 @@ export default function AppRoutes(): JSX.Element {
            <Route path="/contact" element={<Contact/>} />
         </Routes>
       </main>
+      < Footer/>
     </>
   );
 }
