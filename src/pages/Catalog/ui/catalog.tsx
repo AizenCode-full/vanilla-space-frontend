@@ -168,7 +168,6 @@ export default function CatalogPage() {
       </p>
 
       <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={setCurrentPage} />
-      <Footer />
 
     </div>
   );
