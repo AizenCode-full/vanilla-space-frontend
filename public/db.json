@@ -1,5 +1,5 @@
 {
-  "clothing": [
+  "products": [
     {
       "id": "1",
       "name": "Футболка USA",
@@ -8,6 +8,7 @@
       "size": "M",
       "color": "grey",
       "quantity": 1,
+      "category": "Пальто",
       "image": "/product-usa-tshirt.png"
     },
     {
@@ -18,6 +19,7 @@
       "size": "S",
       "color": "brown",
       "quantity": 3,
+      "category": "Свитшоты",
       "image": "/product-glow-swimsuit.png"
     },
     {
@@ -28,6 +30,7 @@
       "size": "L",
       "color": "coral",
       "quantity": 5,
+      "category": "Кардиганы",
       "image": "/product-sweet-shot.png"
     },
     {
@@ -38,6 +41,7 @@
       "size": "M",
       "color": "beige",
       "quantity": 2,
+      "category": "Толстовки",
       "image": "/product-usa-tshirt.png"
     },
     {
@@ -48,7 +52,8 @@
       "size": "Oversize",
       "color": "milk",
       "quantity": 7,
-      "image": "/product-cozy-cardigan.png"
+      "category": "Пальто",
+      "image": "/product-glow-swimsuit.png"
     },
     {
       "id": "6",
@@ -58,7 +63,8 @@
       "size": "XL",
       "color": "black",
       "quantity": 12,
-      "image": "/product-oversize-black.png"
+      "category": "Свитшоты",
+      "image":  "/product-sweet-shot.png"
     },
     {
       "id": "7",
@@ -68,7 +74,9 @@
       "size": "S",
       "color": "camel",
       "quantity": 1,
-      "image": "/product-luxe-coat.png"
+      "category": "Кардиганы",
+      "image": "/product-usa-tshirt.png"
+
     },
     {
       "id": "8",
@@ -78,7 +86,8 @@
       "size": "M",
       "color": "grey-melange",
       "quantity": 4,
-      "image": "/product-soft-cardigan.png"
+      "category": "Толстовки",
+      "image":  "/product-sweet-shot.png"
     },
     {
       "id": "9",
@@ -88,7 +97,8 @@
       "size": "M",
       "color": "mint",
       "quantity": 8,
-      "image": "/product-chill-sweatshirt.png"
+      "category": "Кардиганы",
+      "image": "/product-glow-swimsuit.png"
     },
     {
       "id": "10",
@@ -98,7 +108,8 @@
       "size": "L",
       "color": "dark-blue",
       "quantity": 3,
-      "image": "/product-double-breasted-coat.png"
+      "category": "Свитшоты",
+      "image": "/product-usa-tshirt.png"
     },
     {
       "id": "11",
@@ -108,7 +119,8 @@
       "size": "S",
       "color": "burgundy",
       "quantity": 6,
-      "image": "/product-vintage-cardigan.png"
+      "category": "Пальто",
+      "image": "/product-glow-swimsuit.png"
     },
     {
       "id": "12",
@@ -118,7 +130,8 @@
       "size": "XS",
       "color": "white",
       "quantity": 15,
-      "image": "/product-minimal-sweatshirt.png"
+      "category": "Кардиганы",
+      "image":  "/product-sweet-shot.png"
     },
     {
       "id": "13",
@@ -128,7 +141,8 @@
       "size": "M",
       "color": "brown-check",
       "quantity": 5,
-      "image": "/images/product-wood-coat.png"
+      "category": "Свитшоты",
+      "image": "/product-usa-tshirt.png"
     },
     {
       "id": "14",
@@ -138,7 +152,8 @@
       "size": "S",
       "color": "cream",
       "quantity": 2,
-      "image": "/images/product-breeze-cardigan.png"
+      "category": "Пальто",
+      "image": "/product-sweet-shot.png"
     },
     {
       "id": "15",
@@ -148,6 +163,7 @@
       "size": "L",
       "color": "navy",
       "quantity": 9,
+      "category": "Толстовки",
       "image": "/product-usa-tshirt.png"
     }
   ]
