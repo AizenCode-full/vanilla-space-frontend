@@ -19,7 +19,7 @@ const Contact: React.FC = () => {
 
       {/* Map */}
       <div>
-         <iframe 
+       <iframe 
         src="https://yandex.com/map-widget/v1/?ll=75.143414%2C42.842397&mode=search&oid=9508028285&ol=biz&sctx=ZAAAAAgBEAAaKAoSCXU90XXhgz5AEbxXrUz4N0lAEhIJDJQUWABT9j8RdNL7xtce4T8iBgABAgMEBSgKOABAwKABSAFqAnVhnQHNzMw9oAEAqAEAvQFeIidMwgFMjrHsxpIDpKri6qcC6feOk%2FcEqLzvw9AF%2BuyA7FXkx%2Bb1mwT9%2FuO1I7XenejaBZi9ks79Bu7zq7DJA5SF2%2BDfAYb2m%2FH0AuHdnpfjBYICKNC80LDQs9Cw0LfQuNC9INC%2B0LTQtdC20LTRiyDQsdC40YjQutC10LqKAgCSAgUxMDMwOZoCDGRlc2t0b3AtbWFwcw%3D%3D&sll=75.143414%2C42.842397&sspn=1.735840%2C1.232908&text=%D0%BC%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD%20%D0%BE%D0%B4%D0%B5%D0%B6%D0%B4%D1%8B%20%D0%B1%D0%B8%D1%88%D0%BA%D0%B5%D0%BA&z=9" 
         width="100%" 
         height="400" 
@@ -29,7 +29,8 @@ const Contact: React.FC = () => {
         style={{ position: 'relative' }}
         title="Бутик Max Mara на карте Бишкека"
       />
-      </div>
+      
+    </div>
 
       {/* Contacts */}
       <div className="grid md:grid-cols-3 gap-10 mb-20">
