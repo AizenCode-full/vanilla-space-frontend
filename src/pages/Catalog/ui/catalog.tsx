@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { CATEGORIES, type Category, type Product } from "@/entities/product";
-import Footer from "../../../widgets/footer/ui/footer"
+// import { Footer } from '@/widgets/footer/ui/footer'; 
+
 
 const ITEMS_PER_PAGE = 9;
 

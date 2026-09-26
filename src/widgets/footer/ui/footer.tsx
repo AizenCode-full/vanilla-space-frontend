@@ -1,89 +1,70 @@
-const Footer = () => {
+import  'react';
+import type { JSX } from 'react';
+import { Link } from 'react-router-dom';
+
+export function Footer(): JSX.Element {
   return (
-    <footer className="bg-[#F1EADC] py-[45px]">
-      <div className="mx-auto flex max-w-[1110px] items-start justify-between">
+    <footer className="bg-[#F1EADC] py-12 border-t border-gray-200/30 font-sans select-none w-full">
+      <div className="w-full xl:max-w-[1110px] mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 items-start text-center md:text-left">
+        <div className="flex flex-col items-center md:items-start">
+          <Link to="/" className="flex items-center gap-2 mb-6 no-underline group">
+            <img src="/favicon.svg" alt="Vanilla Space" className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+            <span className="text-sm font-bold tracking-widest text-black uppercase">
+              Vanilla Space
+            </span>
+          </Link>
 
-        {/* Логотип и информация */}
-        <div>
-          <div className="mb-[30px] text-[13px] tracking-[1px]">
-            ♧ WOMAZING
-          </div>
-
-          <div className="text-[11px] text-[#333]">
-            <p className="mb-2">© Все права защищены</p>
-            <p className="mb-2">Политика конфиденциальности</p>
-            <p>Публичная оферта</p>
+          <div className="text-xs text-gray-600 flex flex-col gap-2 leading-relaxed">
+            <p className="m-0">© Все права защищены</p>
+            <p className="hover:text-[#6E9C9F] cursor-pointer transition-colors m-0">Политика конфиденциальности</p>
+            <p className="hover:text-[#6E9C9F] cursor-pointer transition-colors m-0">Публичная оферта</p>
           </div>
         </div>
-
-        {/* Навигация */}
-        <nav className="flex items-start gap-[35px] text-[12px]">
-          <a href="#" className="text-[#333] no-underline">
-            Главная
-          </a>
-
-          <a href="#" className="text-[#333] no-underline">
-            Магазин
-          </a>
-
-          <a href="#" className="text-[#333] no-underline">
-            О бренде
-          </a>
-
-          <a href="#" className="text-[#333] no-underline">
-            Контакты
-          </a>
-
-          {/* Категории */}
-          <div className="ml-[-180px] mt-[30px] flex flex-col gap-2 text-[11px]">
-            <a href="#" className="text-[#333]">
-              Пальто
-            </a>
-            <a href="#" className="text-[#333]">
-              Свитеры
-            </a>
-            <a href="#" className="text-[#333]">
-              Кардиганы
-            </a>
-            <a href="#" className="text-[#333]">
-              Толстовки
-            </a>
+        <div className="grid grid-cols-2 gap-4 w-full max-w-xs mx-auto md:mx-0">
+          <nav className="flex flex-col gap-3 text-xs font-semibold text-black">
+            <Link to="/" className="hover:text-[#6E9C9F] transition-colors no-underline">Главная</Link>
+            <Link to="/catalog" className="hover:text-[#6E9C9F] transition-colors no-underline">Магазин</Link>
+            <Link to="/brand" className="hover:text-[#6E9C9F] transition-colors no-underline">О бренде</Link>
+            <Link to="/contact" className="hover:text-[#6E9C9F] transition-colors no-underline">Контакты</Link>
+          </nav>
+          <div className="flex flex-col gap-3 text-xs text-gray-600">
+            <Link to="/catalog" className="hover:text-[#6E9C9F] transition-colors no-underline">Пальто</Link>
+            <Link to="/catalog" className="hover:text-[#6E9C9F] transition-colors no-underline">Свитеры</Link>
+            <Link to="/catalog" className="hover:text-[#6E9C9F] transition-colors no-underline">Кардиганы</Link>
+            <Link to="/catalog" className="hover:text-[#6E9C9F] transition-colors no-underline">Толстовки</Link>
           </div>
-        </nav>
-
-        {/* Контакты */}
-        <div className="flex flex-col items-end text-[11px]">
-          <a href="tel:+996555123412" className="mb-2 text-[#333]">
+        </div>
+        <div className="flex flex-col items-center md:items-end text-xs w-full gap-3">
+          <a 
+            href="tel:+996555123412" 
+            className="font-medium text-black hover:text-[#6E9C9F] transition-colors no-underline"
+          >
             +996 (555) 123-412
           </a>
-
-          <a href="mailto:hello@womazing.com" className="mb-2 text-[#333]">
-            hello@womazing.com
+          <a 
+            href="mailto:hello@vanillaspace.com" 
+            className="text-gray-600 hover:text-[#6E9C9F] transition-colors no-underline"
+          >
+            hello@vanillaspace.com
           </a>
-
-          {/* Соцсети */}
-          <div className="mt-2 flex gap-3 text-[15px]">
-            <a href="#" className="text-[#222]">
+          <div className="mt-2 flex gap-4 text-base">
+            <a href="https://instagram.com" target="_blank" rel="noreferrer" className="text-black hover:text-[#6E9C9F] transition-colors no-underline">
               ◎
             </a>
-            <a href="#" className="text-[#222]">
+            <a href="https://facebook.com" target="_blank" rel="noreferrer" className="text-black hover:text-[#6E9C9F] transition-colors no-underline">
               f
             </a>
-            <a href="#" className="text-[#222]">
+            <a href="https://pinterest.com" target="_blank" rel="noreferrer" className="text-black hover:text-[#6E9C9F] transition-colors no-underline">
               p
             </a>
           </div>
-
-          {/* Карты */}
-          <div className="mt-[15px] flex gap-1 text-[9px]">
-            <span>VISA</span>
-            <span>🔴🟡</span>
+          <div className="mt-4 flex items-center gap-2 text-[10px] text-gray-400 tracking-wider">
+            <span className="border border-gray-300/40 px-1 py-0.5 rounded-xs bg-white/50">VISA</span>
+            <span className="border border-gray-300/40 px-1 py-0.5 rounded-xs bg-white/50">MASTERCARD</span>
           </div>
         </div>
 
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}
