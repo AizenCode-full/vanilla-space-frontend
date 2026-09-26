@@ -4,9 +4,9 @@ import { Routes, Route } from 'react-router-dom';
 import { Header } from '@/widgets/header'; 
 import { Footer } from '@/widgets/footer/ui/footer'; 
 import { Home } from '@/pages/home/ui/home';
-import Brand  from '@/pages/Brand/ui/Brand';
+import {Brand } from '@/pages/Brand/ui/Brand';
 import  Contact  from '@/pages/Contact/ui/Contact';
-import Catalog from '@/pages/Catalog/ui/catalog'; 
+import { Catalog } from '@/pages/Catalog/ui/catalog'; 
 import  Product from '@/pages/Product/ui/product'; 
 
 export default function AppRoutes(): JSX.Element {

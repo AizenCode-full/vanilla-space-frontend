@@ -50,7 +50,8 @@ export function Home() {
         <div className="w-full xl:max-w-[1110px] mx-auto px-4 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative">
           <div className="lg:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left z-10 mt-4 lg:mt-0">
             <h1 className="text-4xl sm:text-5xl lg:text-[55px] font-medium leading-[1.1] text-black mb-6">
-              Новые поступления<br />в этом сезоне
+              {/* Новые поступления<br />в этом сезоне */}
+              Проект находится в процессе разработки 
             </h1>
             <p className="max-w-md text-base sm:text-lg lg:text-[20px] font-normal leading-[1.4] text-gray-600 mb-10">
               Утонченные сочетания и бархатные оттенки — вот то, что вы искали в этом сезоне. Время исследовать.
