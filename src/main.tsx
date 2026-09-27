@@ -9,7 +9,8 @@
 //   </StrictMode>,
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import App from './app/App' // Относительный путь железно сработает
+import './index.css'  
+import App from './app/App'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
