@@ -7,7 +7,8 @@ import { Home } from '@/pages/home/ui/home';
 import {Brand } from '@/pages/Brand/ui/Brand';
 import  Contact  from '@/pages/Contact/ui/Contact';
 import { Catalog } from '@/pages/Catalog/ui/catalog'; 
-// import  Product from '@/pages/Product/ui/product'; 
+
+
 
 export default function AppRoutes(): JSX.Element {
   return (
@@ -19,7 +20,7 @@ export default function AppRoutes(): JSX.Element {
           <Route path="/Home.html" element={<Home />} />
           <Route path="/catalog" element={<Catalog />} /> 
           <Route path="/shop" element={<Catalog />} /> 
-          {/* <Route path="/product/:id" element={<Product />} /> */}
+    
           <Route path="/login" element={<div className="py-20 text-center text-xl font-medium">Страница входа</div>} />
           <Route path="/devs" element={
             <div className="max-w-[1110px] mx-auto px-4 py-20 text-center text-xl font-bold text-gray-800">
