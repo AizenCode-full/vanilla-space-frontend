@@ -7,16 +7,12 @@
 //   <StrictMode>
 //     <App />
 //   </StrictMode>,
-// )
-import  'react';
-import { BrowserRouter } from 'react-router-dom';
-import AppRoutes from '@/app/AppRoutes'; 
-import "@/app/styles/App.css";
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import App from './app/App' // Относительный путь железно сработает
 
-export default function App() {
-  return (
-      <BrowserRouter>
-        <AppRoutes />
-      </BrowserRouter>
-  );
-}
+createRoot(document.getElementById('root')!).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)
